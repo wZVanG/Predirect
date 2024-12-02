@@ -11,6 +11,8 @@ class GoogleAnalytics
 
         // Llamada a Google Analytics
         $url = "https://www.google-analytics.com/collect?v=1&t=event&tid=$trackingId&cid=555&ec=$category&ea=$action&el=$label";
-        file_get_contents($url);
+        //file_get_contents($url); // Para probar la llamada
+
+        return true;
     }
 }

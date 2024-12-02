@@ -15,7 +15,7 @@ class RedirectController
             GoogleAnalytics::trackEvent('Redirección', 'Acceso', $slug);
             header("Location: " . $url);
         } else {
-            header("Location: /error");
+            header("Location: https://wai.pe");
         }
 
         exit;
