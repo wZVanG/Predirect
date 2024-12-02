@@ -1,0 +1,22 @@
+{
+    "name": "wzvang/predirect",
+    "description": "Script de redirección dinámica con seguimiento de Google Analytics",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Walter Chapilliquen",
+            "email": "hola@wai.pe"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "vlucas/phpdotenv": "^5.5",
+        "guzzlehttp/guzzle": "^7.4",
+        "monolog/monolog": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
