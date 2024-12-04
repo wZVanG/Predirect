@@ -9,8 +9,12 @@ $dotenv->load();
 
 $variables_entorno_verifificar = ['GA_SERVER', 'GA_TRACKING_ID', 'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'INSTALL_PASSWORD'];
 foreach ($variables_entorno_verifificar as $variable) {
-    if(!getenv($variable)) die("Falta la variable de entorno $variable");
-    else define($variable, getenv($variable));
+    //Podemos obtener la variable de entorno con getenv o $_ENV
+
+    $valor = isset($_ENV[$variable]) ? $_ENV[$variable] : getenv($variable);
+
+    if(!$valor) die("Falta la variable de entorno $variable");
+    else define($variable, $valor);
 }
 
 try {
