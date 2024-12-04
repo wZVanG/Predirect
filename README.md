@@ -25,7 +25,7 @@ Características:
 
 3. Configurar archivo `.env` (copiar de `.env.back`).
 
-4. Ejecutar script de instalación: `/install`
+4. Ejecutar script de instalación: `/index.php?install` (Colocar contraseña definida en el archivo `.env`, encriptar con MD5)
 
 ## Uso
 
