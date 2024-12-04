@@ -17,38 +17,20 @@ Características:
     git clone git@github.com:wZVanG/Predirect.git
     ```
 
-2. Dependencias Composer:
+2. Instalar dependencias de Composer:
 
     ```bash
     composer install
     ```
 
-3. Configurar archivo `.env`:
+3. Configurar archivo `.env` (copiar de `.env.back`).
 
-    ```
-    DB_HOST=localhost
-    DB_NAME=db
-    DB_USER=root
-    DB_PASSWORD=
-    GA_TRACKING_ID=UA-XXXXXXXXX-X
-    GA_SERVER=www.wai.pe
-    ```
-
-4. Configurar la base de datos con las tablas necesarias. (`_backups/install.sql`)
+4. Ejecutar script de instalación: `/install`
 
 ## Uso
 
-Simplemente llamar a la URL, por ejemplo: `https://www.wai.pe/slug`
-
-- Debe estar configurado el .htaccess para que el script funcione correctamente.
-- Contenido de .htaccess:
-```
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/index.php?pagina=$1 [L]
-```
-
+Llamar a la URL, por ejemplo: `/curso1/instagram`. Equivalente a `/index.php?pagina=curso1&canal=instagram`
+Esto llamará a la URL registrada en la base de datos de `curso1`, registrará el evento en Google Analytics y redirigirá al usuario a la URL correspondiente. 
 
 ## Más información	
 

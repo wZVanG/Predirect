@@ -31,7 +31,9 @@ try{
     $sql = 'CREATE TABLE IF NOT EXISTS paginas (
         id INT AUTO_INCREMENT PRIMARY KEY,
         slug VARCHAR(255) NOT NULL,
-        url TEXT NULL
+        url TEXT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4';
     
     $stmt = $pdo->prepare($sql);
