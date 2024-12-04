@@ -11,6 +11,10 @@ class PageModel
     {
         global $pdo;
 
+        $slug = trim((string) $slug);
+
+        if(empty($slug)) return null;
+
         $sql = 'SELECT url FROM paginas WHERE slug = :slug LIMIT 1';
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
