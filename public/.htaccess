@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RewriteRule ^test$ test.php [L,QSA]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
