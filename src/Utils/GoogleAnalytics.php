@@ -4,11 +4,13 @@ namespace App\Utils;
 
 class GoogleAnalytics
 {
-    public static function trackEvent($category, $action, $label)
+    public static function trackEvent($category, $action, $label, $options = [])
     {
         $trackingId = GA_TRACKING_ID;
         $clientId = self::generateClientId();
         $server = 'www.google-analytics.com';
+
+        $custom_dimensions = ["canal", "ref"];
 
         $data = [
             'v' => 1, // Versión del protocolo
@@ -17,8 +19,13 @@ class GoogleAnalytics
             't' => 'event', // Tipo de hit
             'ec' => $category, // Categoría del evento
             'ea' => $action, // Acción del evento
-            'el' => $label // Etiqueta del evento
+            'el' => $label, // Etiqueta del evento
         ];
+
+        // Opciones adicionales
+        foreach ($custom_dimensions as $dimension) {
+            if (isset($options[$dimension]) && $options[$dimension] !== null) $data[$dimension] = $options[$dimension];
+        }
 
         // URL de la API de Google Analytics
         $url = 'https://' . $server . '/collect';

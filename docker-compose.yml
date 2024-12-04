@@ -8,11 +8,8 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html
-    environment:
-      - DB_HOST=db
-      - DB_NAME=redirecciones_db
-      - DB_USER=root
-      - DB_PASSWORD=root
+    env_file:
+      - .env
     depends_on:
       - db
 

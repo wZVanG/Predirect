@@ -7,15 +7,11 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-// Google Analytics
-define('GA_TRACKING_ID', getenv('GA_TRACKING_ID'));
-define('GA_SERVER', getenv('GA_SERVER'));
-
-// Base de datos
-define('DB_HOST', getenv('DB_HOST'));
-define('DB_NAME', getenv('DB_NAME'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASSWORD', getenv('DB_PASSWORD'));
+$variables_entorno_verifificar = ['GA_SERVER', 'GA_TRACKING_ID', 'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'INSTALL_PASSWORD'];
+foreach ($variables_entorno_verifificar as $variable) {
+    if(!getenv($variable)) die("Falta la variable de entorno $variable");
+    else define($variable, getenv($variable));
+}
 
 try {
     $pdo = new PDO(
