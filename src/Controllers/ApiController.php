@@ -21,8 +21,8 @@ class ApiController
 
             // Validar API Key
             $headers = getallheaders();
-            var_dump($headers); exit;
             $apiKey = isset($headers['X-Api-Key']) ? $headers['X-Api-Key'] : null;
+            $apiKey = !$apiKey ? isset($headers['x-api-key']) ? $headers['x-api-key'] : null : $apiKey;
             
             if (!$apiKey || !$this->validateApiKey($apiKey)) {
                 throw new \Exception("API Key no válida", 401);
