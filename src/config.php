@@ -7,7 +7,7 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-$variables_entorno_verifificar = ['GA_SERVER', 'GA_TRACKING_ID', 'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'INSTALL_PASSWORD'];
+$variables_entorno_verifificar = ['GA_SERVER', 'GA_TRACKING_ID', 'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'INSTALL_PASSWORD', 'API_KEY'];
 foreach ($variables_entorno_verifificar as $variable) {
     //Podemos obtener la variable de entorno con getenv o $_ENV
 

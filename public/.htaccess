@@ -1,14 +1,17 @@
 RewriteEngine On
 
-RewriteRule ^test$ test.php [L,QSA]
+RewriteRule ^test$ test.php [L,QSA] 
 
+# Verificar si el archivo o directorio existe antes de redirigir a index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
+
+# Reglas generales para manejo de páginas
 RewriteRule ^([^/]+)/([^/]+)/?$ index.php?pagina=$1&canal=$2 [L,QSA]
 RewriteRule ^([^/]+)/?$ index.php?pagina=$1 [L,QSA]
 
-<Files .env>
-Order allow,deny
-Deny from all
+# Protección de archivos sensibles (para Apache 2.4+)
+<Files ".env">
+Require all denied
 </Files>
